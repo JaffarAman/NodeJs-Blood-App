@@ -1,0 +1,365 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    /* background-color: #ECECEC; */
+    background-image: linear-gradient(to bottom right , #91EAE4 , white);
+}
+
+
+/* /////LOGIN PAGE STYLING START/////// */
+.loginMainBox{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 2px solid black; */
+    width: 350px;
+    padding: 8px;
+    background-image: linear-gradient(to bottom,#7F7FD5 ,#86A8E7 );
+    /* background-color: #2A3B71; */
+    border-radius: 5px;
+}
+
+.loginBox img{
+    display: block;
+    margin: 5px auto;
+}
+.heading{
+    font-family: cursive;
+    color: white;
+    padding: 8px;
+    border-bottom: 2px dashed black;
+}
+.loginBox input{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-top: 20px;
+    padding: 8px;
+    background: transparent;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    color: black;
+}
+.loginBox input::placeholder{
+    font-family: cursive;
+    color: white;
+    font-size: large;
+}
+.loginBox small{
+    padding: 8px;
+    width: 100%;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.loginBox small a{
+    color: white;
+    text-decoration: none;
+}
+.loginBox small a:hover{
+    text-decoration: underline;
+}
+.loginBox button{
+    width: 120px;
+    display: block;
+    margin: 0 auto;
+    outline: none;
+    border: 1px solid white;
+    height: 30px;
+    border-radius: 8px;    
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.loginBottom{
+    margin: 10px 0;
+}
+.loginBottom p{
+    color: white;
+    padding: 8px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.loginBottom a{
+    text-decoration:none;
+    color: blue;
+}
+.loginBottom a:hover{
+    text-decoration: underline;
+}
+
+    /* //////LOGIN PAGE STYLING END ////// */
+
+
+
+    /* //////SIGNUP  PAGE STYLING START ////// */
+#alertBox{
+    width: 100%;
+    /* border: 2px solid black; */
+    /* height: 40px; */
+    position: absolute;
+    /* line-height: 40px; */
+    text-align: center;
+    color: #7F7FD5;
+    background-color: palegreen;
+    font-family: cursive;
+    padding: 8px;    
+    transition: all 0.6s ease;
+    z-index: 10;
+    top: -50px;
+    opacity: 0;
+}
+#alertBox.add{
+    position: absolute;
+    top: 10px;
+    opacity: 1;
+
+}
+
+.signupMainbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.signupBox{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    width: 350px;
+    background-image: linear-gradient(to bottom,#7F7FD5 ,#86A8E7 );
+    padding: 8px;
+    border-radius: 5px;
+}
+.signupTop img{
+    display: block;
+    margin: 10px auto;
+}
+
+
+.signupBox input{
+    width: 100%;
+    height: 30px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-top: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: large;
+    padding: 8px;
+}
+.signupBox input::placeholder{
+    color: white;
+    font-size: large;
+    font-family: cursive;
+}
+.signupBox small{
+    color: maroon;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 5px;
+    width: 100%;
+}
+.signupBox button{
+    width: 120px;
+    height: 40px;
+    outline: none;
+    background: transparent;
+    border: 1px solid white;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+.signupBottom{
+
+    margin: 15px auto;
+}
+.signupBottom p {
+    color: white;
+}
+.signupBottom a{
+    color: blue;
+    text-decoration: none;
+}
+.signupBottom a:hover{
+    text-decoration: underline;
+}
+    /* //////SIGNUP  PAGE STYLING END ////// */
+
+
+    /* ////////DASHBOARD STYLING START////// */
+.dashboardFix{
+    display: block;
+    position: sticky;
+    top: 0;
+    /* z-index: 100; */
+
+}
+.dashBoardHeader{
+    width: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 25px;
+    background-color: #91EAE4;
+}    
+.profileBtn{
+    font-size: 30px;
+    color: maroon;
+    
+}
+.headHeading{
+    display: flex;
+    align-items: center;
+    font-family: cursive;
+    color: maroon;
+    font-size: 25px;
+}
+.logoutBtn button{
+    width: 80px;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 8px;
+    border-radius:5px ;
+    cursor: pointer;
+}
+
+
+/* ///////PROFILE CONTAINER STYLING START////// */
+
+.profileBox{
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -200px;
+    transition: all 0.6s ease;
+    opacity: 0;
+    visibility: collapse;
+    background-color: #7F7FD5;
+    
+}
+.profileBox.add{
+    position: fixed;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+.profilePic{
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+.profilePic img{
+    position: relative;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.profilePic span{
+    position: absolute;
+    top:0;
+    left:15px;
+    font-size: 25px;
+    color: #91EAE4;
+}
+.userDetails{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.userDetails ul{
+    width: 100%;
+    /* text-align: center; */
+    padding: 0 5px;
+}
+.userDetails ul li{
+    width: 100%;
+    border-bottom:1px solid white;
+    list-style: none;
+    margin: 20px 0;
+    padding: 3px 8px;
+    font-size: 22px;
+    font-family: cursive;
+}
+/* ///////PROFILE CONTAINER STYLING END////// */
+
+
+/* ////posting card styling start ///// */
+.postBox{
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.inputBOx{
+    margin: 20px 0;
+}
+.inputBOx input{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 230px;
+    padding: 5px;
+    font-family: cursive;
+    outline: none;
+    background-color: transparent;
+    margin: 10px 0;
+}
+.inputBOx input::placeholder{
+    color: white;
+}
+.inputBOx button{
+    border: 2px solid white;
+    outline: none;
+    width: 80px;
+    padding:5px ;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.cardBox{
+    width: 300px;
+    margin: 50px 0 20px 0  ;   
+}
+.cardBox li{
+    border: 1px solid grey;
+    list-style: none;
+    margin: 20px 0;
+}
+.cardDes{
+    border-top: 1px solid black;
+    padding: 8px;
+    font-family: cursive;
+
+}
+
+/* ////posting card styling end///// */
+
+
+
+    /* ////////DASHBOARD STYLING END////// */

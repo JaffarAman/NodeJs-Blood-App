@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="alertBox">
+        <h2 >SuccessFully Sign up</h2>
+
+    </section>
+    <section class="signupMainbox">
+
+        <div class="signupBox">
+
+            <section class="signupTop">
+                
+                    <img src="https://img.icons8.com/ios/452/drop-of-blood--v2.png" width="60" alt="">
+                    <h3 class="heading">Create Account</h3>
+                </section>
+
+
+                <input type="text" placeholder="Full Name..." id="fullName">
+                <small id="fullNameError"></small>
+                <input type="text" placeholder="Email..." id="email">
+                <small id="emailError"></small>
+                
+                <div class="passwordBox">
+                    <input type="password" placeholder="Password..." id="password">
+                    
+                </div>
+                    <small id="passwordError"></small>
+
+                <input type="text" placeholder="Phone#..." id="phone">
+                <small id="phoneError"></small>
+                
+                <input type="text" placeholder="Address..." id="address">
+                <small id="addressError"></small>
+
+                <button type="submit" onclick="onSignUp()">SIGN UP</button>
+
+                <div class="signupBottom">
+                    <p>Already have a account? <a href="login.html">Login</a></p>
+                </div>
+
+        </div>
+
+    </section>
+
+
+</body>
+<script src="app.js"></script>
+</html>

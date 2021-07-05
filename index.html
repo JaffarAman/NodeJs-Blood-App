@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/207ef960a8.js" crossorigin="anonymous"></script>
+    <style>
+        html,body{
+            /* background-image: none !important; */
+        /* background-image: linear-gradient(to bottom right , #91EAE4 , white); */
+        background-image: linear-gradient(to bottom,#7F7FD5 ,#86A8E7 ) !important;
+        min-height: 100vh;
+        }
+    </style>
+</head>
+<body onload="getCurrentUser() , showAllPost()">
+    <section id="alertBox">
+        <h2 ></h2>
+
+    </section>
+    
+    <!-- ////HEADER START/// -->
+
+    <section class="dashboardFix">
+
+        <header class="dashBoardHeader">
+
+            <div class="profileBtn">
+                <span class="fas fa-user-circle" onclick="profile()"></span>
+            </div>
+
+            <div class="headHeading">
+                <h1>BLOOD</h1> 
+                <img src="https://img.icons8.com/ios/452/drop-of-blood--v2.png" width="50" alt="">
+            </div>
+
+            <div class="logoutBtn">
+                
+                <button onClick="onLogOut()">LOGOUT</button>
+            </div>
+
+        </header>
+
+
+    </section>
+
+    <!-- ////HEADER END/// -->
+
+
+    <!-- /////profile container start//// -->
+
+    <section class="profileBox">
+
+        <div>
+        </div>
+        <div class="profilePic">
+            <img src="img/Untitled.jpg" width="100%" alt="">
+            <span class="fas fa-arrow-circle-left" onclick="removeProfileBox()"></span>
+        
+        </div>
+
+        <div class="userDetails">
+            <ul>
+                
+                <li id="proName">Jaffar</li>
+                <li id="proEmail">Jaffar@gmail.com</li>
+                <li id="proPassword">12345</li>
+                <li id="proPhone" >03112655616</li>
+                <li id="proAddress">c72/11</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- /////profile container end//// -->
+
+    <section>
+
+        <section class="postBox">
+
+            <div class="inputBOx">
+                <input type="text" placeholder="Title..." id="postTitle">
+                <input type="text" placeholder="Description..." id="postDes">
+                <button onclick="postSubmit()">POST</button>
+            </div>
+
+            <section class="cardBox">
+                <li>
+<!-- 
+                    <div class="cardImage">
+                        <img src="img/blood.jpg" width="100%" alt="">
+                    </div>
+    
+                    <div class="cardDes">
+    
+                        <h2>TITLE</h2>
+                        <p>NEED BLOOD</p>
+    
+                    </div> -->
+                </li>
+            </section>
+
+
+        </section>
+
+
+    </section>
+    
+
+</body>
+<script src="app.js"></script>
+</html>
