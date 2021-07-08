@@ -5,7 +5,9 @@
 }
 html,body{
     /* background-color: #ECECEC; */
-    background-image: linear-gradient(to bottom right , #91EAE4 , white);
+    background-image: linear-gradient(to bottom,#0F2027 ,#2C5364 );
+
+    /* background-image: linear-gradient(to bottom right , #91EAE4 , white); */
 }
 
 
@@ -24,7 +26,8 @@ html,body{
     /* border: 2px solid black; */
     width: 350px;
     padding: 8px;
-    background-image: linear-gradient(to bottom,#7F7FD5 ,#86A8E7 );
+    /* background-image: linear-gradient(to bottom,#7F7FD5 ,#86A8E7 ); */
+    background-image: linear-gradient(to right , #CB356B, #BD3F32) !important;
     /* background-color: #2A3B71; */
     border-radius: 5px;
 }
@@ -141,7 +144,9 @@ html,body{
     /* align-items: center; */
     flex-direction: column;
     width: 350px;
-    background-image: linear-gradient(to bottom,#7F7FD5 ,#86A8E7 );
+    background-image: linear-gradient(to right , #CB356B, #BD3F32) !important;
+    
+    /* background-image: linear-gradient(to bottom,#7F7FD5 ,#86A8E7 ); */
     padding: 8px;
     border-radius: 5px;
 }
@@ -208,8 +213,9 @@ html,body{
     display: block;
     position: sticky;
     top: 0;
+    background-image: linear-gradient(to right , #CB356B, #BD3F32) !important;
     /* z-index: 100; */
-
+    border-bottom: 2px solid black;
 }
 .dashBoardHeader{
     width: 100%;
@@ -220,18 +226,18 @@ html,body{
     align-items: center;
     flex-wrap: wrap;
     padding: 10px 25px;
-    background-color: #91EAE4;
+    /* background-color: none !important; */
 }    
 .profileBtn{
     font-size: 30px;
-    color: maroon;
+    color: white;
     
 }
 .headHeading{
     display: flex;
     align-items: center;
     font-family: cursive;
-    color: maroon;
+    color: white;
     font-size: 25px;
 }
 .logoutBtn button{
@@ -241,6 +247,8 @@ html,body{
     padding: 8px;
     border-radius:5px ;
     cursor: pointer;
+    color: white;
+    font-weight: bold;
 }
 
 
@@ -255,7 +263,10 @@ html,body{
     transition: all 0.6s ease;
     opacity: 0;
     visibility: collapse;
-    background-color: #7F7FD5;
+    /* background-color: #7F7FD5; */
+    background-image: linear-gradient(to right , #CB356B, #BD3F32) !important;
+
+    
     
 }
 .profileBox.add{
@@ -280,7 +291,7 @@ html,body{
     top:0;
     left:15px;
     font-size: 25px;
-    color: #91EAE4;
+    color: white;
 }
 .userDetails{
     display: flex;
@@ -301,6 +312,10 @@ html,body{
     padding: 3px 8px;
     font-size: 22px;
     font-family: cursive;
+    color: white;
+}
+.userDetails ul li i{
+    margin-right: 10px;
 }
 /* ///////PROFILE CONTAINER STYLING END////// */
 
@@ -320,13 +335,15 @@ html,body{
 }
 .inputBOx input{
     border: none;
-    border-bottom: 1px solid black;
-    width: 230px;
+    border-bottom: 1px solid wheat;
+    max-width: 230px;
     padding: 5px;
     font-family: cursive;
     outline: none;
     background-color: transparent;
     margin: 10px 0;
+    color: white;
+    font-size: large;
 }
 .inputBOx input::placeholder{
     color: white;
@@ -341,25 +358,90 @@ html,body{
     cursor: pointer;
     font-weight: bold;
     margin: 10px 0;
+    color: white;
 }
+
+/* //////POST CARD STYLING START/// */
 .cardBox{
-    width: 300px;
+    /* border: 2px solid lime   ; */
+    width: 100%;
     margin: 50px 0 20px 0  ;   
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
 }
+
 .cardBox li{
-    border: 1px solid grey;
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    padding: 8px;
     list-style: none;
-    margin: 20px 0;
+    margin: 20px 10px;
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap-reverse; */
+    width: 550px;
+    /* padding: 0 10px; */
+
+}
+.cardImage{
+    border: 2px solid brown;
+    max-width: 200px;
+    
 }
 .cardDes{
-    border-top: 1px solid black;
-    padding: 8px;
+    /* border: 1px solid gold; */
     font-family: cursive;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+}
+.postName{
+        border-bottom: 2px solid maroon;
+    width: 100%;
+    margin: 10px 0;
+    padding:5px ;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: white;
+    }
+.postDes{
+    margin: 10px 0;
+    /* border: 2px solid black; */
+    color: white;
 
 }
+.postDes h2{
+    border-bottom: 2px solid maroon;
+    padding: 5px;
+}
+.postDes p{
+    padding: 5px;
 
+}
+@media only screen and (max-width:400px){
+    .cardBox li{
+        flex-wrap: wrap;
+    }
+
+
+}
 /* ////posting card styling end///// */
 
+.footer{
+    background-image: linear-gradient(to right , #CB356B, #BD3F32) !important;
+    width: 100%;
+    height: 40px;
+    padding: 7px;
+    display: block;
+    color: white;
+    font-family: cursive;
+}
 
 
     /* ////////DASHBOARD STYLING END////// */

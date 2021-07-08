@@ -239,11 +239,11 @@ function getCurrentUser() {
 
     var getUser = JSON.parse(localStorage.getItem("currentUser"))
     console.log(getUser)
-    proName.innerHTML = "NAME: " + getUser.userName
-    proEmail.innerHTML = "EMAIL: " + getUser.userEmail
-    proPassword.innerHTML = "PASS: " + getUser.userPassword
-    proPhone.innerHTML = "PHONE: " + getUser.userPhone
-    proAddress.innerHTML = "ADDRESS: " + getUser.userAddress
+    proName.innerHTML = "<i class='fas fa-user-circle'></i>" + getUser.userName
+    proEmail.innerHTML = "<i class='fas fa-envelope'></i>" + getUser.userEmail
+    proPassword.innerHTML = "<i class='fas fa-lock'></i>" + getUser.userPassword
+    proPhone.innerHTML = "<i class='fas fa-phone'></i>" + getUser.userPhone
+    proAddress.innerHTML = "<i class='fas fa-building'></i>" + getUser.userAddress
 
 
 }
@@ -257,18 +257,29 @@ function postSubmit() {
     var postTitle = document.getElementById("postTitle")
     var postDes = document.getElementById("postDes")
     var cardBox = document.getElementsByClassName("cardBox")
+    
+
+    /////current user data use name in post//
+    var getUser = JSON.parse(localStorage.getItem("currentUser"))
+    ///CREATE DATE USING IN POST///
+    var now = new Date().toDateString()
+     
+
     if (postTitle.value.length > 1 && postDes.value.length > 3) {
         console.log("done hai ")
 
         var postObj = {
             title: postTitle.value,
-            desp: postDes.value
+            desp: postDes.value,
+            postUserName : getUser.userName,
+            postDate : now
         }
 
         var getPost = JSON.parse(localStorage.getItem("posts")) || []
         getPost.push(postObj)
         localStorage.setItem("posts", JSON.stringify(getPost))
         console.log(getPost)
+        window.location.href = "index.html"
 
         ////PRINT ALL POST IN UI USING LOOP////
         // for(var i = 0 ; i<getPost.length;i++){
@@ -296,7 +307,6 @@ function postSubmit() {
     }
     postTitle.innerHTML =""
     postDes .innerHTML =""
-    window.location.href = "index.html"
 }
 
 
@@ -307,18 +317,32 @@ function showAllPost(){
     var cardBox = document.getElementsByClassName("cardBox")
     
     
-    console.log(getPost.length)
+    console.log(getPost)
 
     ////PRINT ALL POST IN UI USING LOOP////
     for(var i = getPost.length-1 ; i>=0;i--){
         
-        cardBox[0].innerHTML += `<li>    <div class="cardImage">
-        <img src="img/blood.jpg" width="100%" alt="">
-    </div>
-            <div class="cardDes">
-                    <h2>${getPost[i].title}</h2>
-                    <p>${getPost[i].desp}</p>
+        cardBox[0].innerHTML += ` <li class="postLi">
+
+        <div class="cardImage">
+            <img src="img/blood.jpg" width="100%" height="100%" alt="">
+        </div>
+
+        <div class="cardDes">
+
+            <div class="postName">
+                <h1 id="postUserName">${getPost[i].postUserName}</h1>
+                <h4 id="postDate">${getPost[i].postDate}</h4>
+
             </div>
+            <div class="postDes">
+
+                
+                <h2>${getPost[i].title}</h2>
+                <p>${getPost[i].desp}</p>
+            </div>
+
+        </div>
     </li>`
     }
     

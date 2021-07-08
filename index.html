@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DashBoard</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/207ef960a8.js" crossorigin="anonymous"></script>
     <style>
         html,body{
-            /* background-image: none !important; */
-        /* background-image: linear-gradient(to bottom right , #91EAE4 , white); */
-        background-image: linear-gradient(to bottom,#7F7FD5 ,#86A8E7 ) !important;
+        background-image: linear-gradient(to bottom,#0F2027 ,#2C5364 );
         min-height: 100vh;
         }
     </style>
@@ -27,7 +25,7 @@
     <section class="dashboardFix">
 
         <header class="dashBoardHeader">
-
+            
             <div class="profileBtn">
                 <span class="fas fa-user-circle" onclick="profile()"></span>
             </div>
@@ -77,38 +75,56 @@
 
     <!-- /////profile container end//// -->
 
-    <section>
-
-        <section class="postBox">
+    
+    <section class="postBox">
 
             <div class="inputBOx">
                 <input type="text" placeholder="Title..." id="postTitle">
-                <input type="text" placeholder="Description..." id="postDes">
+                <input type="text" placeholder="Description..." id="postDes"> <p></p>
                 <button onclick="postSubmit()">POST</button>
             </div>
-
+        </section>
+        
+        <section>
             <section class="cardBox">
-                <li>
-<!-- 
+                <!-- <li class="postLi">
+
                     <div class="cardImage">
-                        <img src="img/blood.jpg" width="100%" alt="">
+                        <img src="img/blood.jpg" width="100%" height="100%" alt="">
                     </div>
     
                     <div class="cardDes">
     
-                        <h2>TITLE</h2>
-                        <p>NEED BLOOD</p>
+                        <div class="postName">
+                            <h1 id="postUserName">JAFFAR AMAN</h1>
+                            <h4 id="postDate">07/01/2020</h4>
+
+                        </div>
+                        <div class="postDes">
+
+                            
+                            <h2>TITLE</h2>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                                . A praesentium omnis molestiae esse perspiciatis.
+                                 Quis exercitationem voluptate quod consequuntur repellat.</p>
+                        </div>
     
-                    </div> -->
-                </li>
+                    </div>
+                </li> -->
             </section>
 
 
-        </section>
 
 
     </section>
+
+
+    <footer class="footer">
+        <p>CopyRight &copy; All Rights Reserved</p>
+
+    </footer>
     
+
 
 </body>
 <script src="app.js"></script>
