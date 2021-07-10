@@ -441,7 +441,8 @@ html,body{
     display: block;
     color: white;
     font-family: cursive;
-    
+    position: fixed;
+    bottom: 0;
 }
 
 

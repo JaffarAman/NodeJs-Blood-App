@@ -1,25 +1,25 @@
 // alert("hello")
 // var userObj;
-var alertBox = document.getElementById("alertBox")
+let alertBox = document.getElementById("alertBox")
 
-function onSignUp() {
+let onSignUp = ()=> {
     ////GET ALL INPUT FLIED IN SIGN UP PAGE///
-    var fullName = document.getElementById("fullName")
-    var email = document.getElementById("email")
-    var password = document.getElementById("password")
-    var phone = document.getElementById("phone")
-    var address = document.getElementById("address")
+    let fullName = document.getElementById("fullName")
+    let email = document.getElementById("email")
+    let password = document.getElementById("password")
+    let phone = document.getElementById("phone")
+    let address = document.getElementById("address")
 
-    var fullNameError = document.getElementById("fullNameError")
-    var emailError = document.getElementById("emailError")
-    var passwordError = document.getElementById("passwordError")
-    var phoneError = document.getElementById("phoneError")
-    var addressError = document.getElementById("addressError")
+    let fullNameError = document.getElementById("fullNameError")
+    let emailError = document.getElementById("emailError")
+    let passwordError = document.getElementById("passwordError")
+    let phoneError = document.getElementById("phoneError")
+    let addressError = document.getElementById("addressError")
 
 
 
     ////SIGN UP FORM VALIDATION START //////
-      var email_valid = /^[A-Za-z0-9._]{3,}[@]{1}[a-z]{1,}[.]{1}[a-z]{1,}$/
+      let email_valid = /^[A-Za-z0-9._]{3,}[@]{1}[a-z]{1,}[.]{1}[a-z]{1,}$/
 
         if(fullName.value.length != ""){
             if(fullName.value.length >= 3){
@@ -161,22 +161,22 @@ function onSignUp() {
 
 
 ///////LOGIN PAGE JS///
-function onLogin() {
+let onLogin = ()=> {
 
-    var email = document.getElementById("email")
-    var password = document.getElementById("password")
+    let email = document.getElementById("email")
+    let password = document.getElementById("password")
 
-    var userObj = {
+    let userObj = {
         userEmail: email.value,
         userPassword: password.value
     }
 
     /////sara data ly kr ajaye gaw local storage sy
-    var user = JSON.parse(localStorage.getItem("users")) || []
+    let user = JSON.parse(localStorage.getItem("users")) || []
     
 
     ////user ka email or pass match hoga tou pura array ly kr ajye gaw
-    var checkUser = user.find(storeValue => {
+    let checkUser = user.find(storeValue => {
         return storeValue.userEmail === userObj.userEmail && storeValue.userPassword === userObj.userPassword
     })
     // console.log(checkUser)
@@ -200,7 +200,7 @@ function onLogin() {
 }
 
 
-function onLogOut() {
+let onLogOut = ()=> {
 
     ///current user remove in local storage
     localStorage.removeItem("currentUser")
@@ -217,11 +217,11 @@ function onLogOut() {
 
 
 ////PROFILE WALY CONTAINER KI FUNCTIONAILTY START///
-function profile() {
-    var profileBox = document.getElementsByClassName("profileBox")
+let profile = ()=> {
+    let profileBox = document.getElementsByClassName("profileBox")
     profileBox[0].classList.add("add")
 }
-function removeProfileBox() {
+let removeProfileBox = ()=> {
     var profileBox = document.getElementsByClassName("profileBox")
     profileBox[0].classList.remove("add")
 
@@ -230,7 +230,7 @@ function removeProfileBox() {
 
 
 //// LOCAL STORAGE SY CURRENT USER KA DATA LY KR ANA OR UI PR SHOW
-function getCurrentUser() {
+let getCurrentUser = ()=> {
     var proName = document.getElementById("proName")
     var proEmail = document.getElementById("proEmail")
     var proPassword = document.getElementById("proPassword")
@@ -238,12 +238,13 @@ function getCurrentUser() {
     var proAddress = document.getElementById("proAddress")
 
     var getUser = JSON.parse(localStorage.getItem("currentUser"))
+    let {userName , userEmail , userPassword , userPhone , userAddress } = getUser
     console.log(getUser)
-    proName.innerHTML = "<i class='fas fa-user-circle'></i>" + getUser.userName
-    proEmail.innerHTML = "<i class='fas fa-envelope'></i>" + getUser.userEmail
-    proPassword.innerHTML = "<i class='fas fa-lock'></i>" + getUser.userPassword
-    proPhone.innerHTML = "<i class='fas fa-phone'></i>" + getUser.userPhone
-    proAddress.innerHTML = "<i class='fas fa-building'></i>" + getUser.userAddress
+    proName.innerHTML = `<i class='fas fa-user-circle'></i> ${userName}`
+    proEmail.innerHTML = `<i class='fas fa-envelope'></i> ${userEmail}`
+    proPassword.innerHTML = `<i class='fas fa-lock'></i> ${userPassword}`
+    proPhone.innerHTML = `<i class='fas fa-phone'></i> ${userPhone}`
+    proAddress.innerHTML = `<i class='fas fa-building'></i> ${userAddress}`
 
 
 }
@@ -253,16 +254,16 @@ function getCurrentUser() {
 
 //////post submit in local storage /////
 
-function postSubmit() {
-    var postTitle = document.getElementById("postTitle")
-    var postDes = document.getElementById("postDes")
-    var cardBox = document.getElementsByClassName("cardBox")
+let postSubmit = ()=> {
+    let postTitle = document.getElementById("postTitle")
+    let postDes = document.getElementById("postDes")
+    let cardBox = document.getElementsByClassName("cardBox")
     
 
     /////current user data use name in post//
-    var getUser = JSON.parse(localStorage.getItem("currentUser"))
+    let getUser = JSON.parse(localStorage.getItem("currentUser"))
     ///CREATE DATE USING IN POST///
-    var now = new Date().toDateString()
+    let now = new Date().toDateString()
      
 
     if (postTitle.value.length > 1 && postDes.value.length > 3) {
@@ -312,9 +313,9 @@ function postSubmit() {
 
 
     /////show all post in ui before post ///
-function showAllPost(){
-    var getPost = JSON.parse(localStorage.getItem("posts"))
-    var cardBox = document.getElementsByClassName("cardBox")
+let showAllPost = () =>{
+    let getPost = JSON.parse(localStorage.getItem("posts"))
+    let cardBox = document.getElementsByClassName("cardBox")
     
     
     console.log(getPost)
