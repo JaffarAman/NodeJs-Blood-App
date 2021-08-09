@@ -1,0 +1,28 @@
+{
+  "name": "bloodauth",
+  "version": "1.0.0",
+  "description": "Project",
+  "main": "nodejs.js",
+  "scripts": {
+    "start": "node nodejs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaffarAman/Blood-Social-Web.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Jaffar Aman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaffarAman/Blood-Social-Web/issues"
+  },
+  "homepage": "https://github.com/JaffarAman/Blood-Social-Web#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5"
+  }
+}

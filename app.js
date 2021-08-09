@@ -142,7 +142,7 @@ let onSignUp = ()=> {
             ////SET TIMEOUT FUNCTION REMOVE ALERT MSG///
             setTimeout(function () {
                 alertBox.classList.remove("add")
-                window.location.replace("login.html")
+                window.location.replace("index.html")
             }, 3000)
 
         }
@@ -189,7 +189,7 @@ let onLogin = ()=> {
         localStorage.setItem("currentUser", JSON.stringify(checkUser))
         alertBox.classList.remove("add")
         alertBox.innerHTML = ""
-        window.location.replace("index.html")
+        window.location.replace("dashboard.html")
     }
     else {
         alertBox.classList.add("add")
@@ -209,7 +209,7 @@ let onLogOut = ()=> {
     setTimeout(() => {
         alertBox.innerHTML = ""
         alertBox.classList.remove("add")
-        window.location.replace("login.html")
+        window.location.replace("index.html")
     }, 3000)
 
 }
@@ -239,7 +239,7 @@ let getCurrentUser = ()=> {
 
     var getUser = JSON.parse(localStorage.getItem("currentUser"))
     let {userName , userEmail , userPassword , userPhone , userAddress } = getUser
-    console.log(getUser)
+    // console.log(getUser)
     proName.innerHTML = `<i class='fas fa-user-circle'></i> ${userName}`
     proEmail.innerHTML = `<i class='fas fa-envelope'></i> ${userEmail}`
     proPassword.innerHTML = `<i class='fas fa-lock'></i> ${userPassword}`
@@ -254,76 +254,95 @@ let getCurrentUser = ()=> {
 
 //////post submit in local storage /////
 
+const BASE_URL = "http://localhost:5000"
 let postSubmit = ()=> {
+   
     let postTitle = document.getElementById("postTitle")
     let postDes = document.getElementById("postDes")
-    let cardBox = document.getElementsByClassName("cardBox")
+    const obj = {
+        title : postTitle.value,
+        des : postDes.value
+    }
+
+    ////post(url,body,headers)
+   axios.post(`${BASE_URL}/create` ,obj)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+    // let cardBox = document.getElementsByClassName("cardBox")
     
 
-    /////current user data use name in post//
-    let getUser = JSON.parse(localStorage.getItem("currentUser"))
-    ///CREATE DATE USING IN POST///
-    let now = new Date().toDateString()
+    // /////current user data use name in post//
+    // let getUser = JSON.parse(localStorage.getItem("currentUser"))
+    // ///CREATE DATE USING IN POST///
+    // let now = new Date().toDateString()
      
 
-    if (postTitle.value.length > 1 && postDes.value.length > 3) {
-        console.log("done hai ")
+    // if (postTitle.value.length > 1 && postDes.value.length > 3) {
+    //     console.log("done hai ")
 
-        var postObj = {
-            title: postTitle.value,
-            desp: postDes.value,
-            postUserName : getUser.userName,
-            postDate : now
-        }
+    //     var postObj = {
+    //         title: postTitle.value,
+    //         desp: postDes.value,
+    //         postUserName : getUser.userName,
+    //         postDate : now
+    //     }
 
-        var getPost = JSON.parse(localStorage.getItem("posts")) || []
-        getPost.push(postObj)
-        localStorage.setItem("posts", JSON.stringify(getPost))
-        console.log(getPost)
-        window.location.href = "index.html"
+    //     var getPost = JSON.parse(localStorage.getItem("posts")) || []
+    //     getPost.push(postObj)
+    //     localStorage.setItem("posts", JSON.stringify(getPost))
+    //     console.log(getPost)
+    //     window.location.href = "dashboard.html"
 
-        ////PRINT ALL POST IN UI USING LOOP////
-        // for(var i = 0 ; i<getPost.length;i++){
+    //     ////PRINT ALL POST IN UI USING LOOP////
+    //     // for(var i = 0 ; i<getPost.length;i++){
 
-        //     cardBox[0].innerHTML += `<li>    <div class="cardImage">
-        //     <img src="img/blood.jpg" width="100%" alt="">
-        // </div>
-        //         <div class="cardDes">
-        //                 <h2>${getPost[i].title}</h2>
-        //                 <p>${getPost[i].desp}</p>
-        //         </div>
-        // </li>`
-        // }
+    //     //     cardBox[0].innerHTML += `<li>    <div class="cardImage">
+    //     //     <img src="img/blood.jpg" width="100%" alt="">
+    //     // </div>
+    //     //         <div class="cardDes">
+    //     //                 <h2>${getPost[i].title}</h2>
+    //     //                 <p>${getPost[i].desp}</p>
+    //     //         </div>
+    //     // </li>`
+    //     // }
 
 
-    }
-    else {
-        alertBox.innerHTML = "Enter Correct Post"
-        alertBox.classList.add("add")
-        setTimeout(function () {
-            alertBox.innerHTML = ""
-            alertBox.classList.remove("add")
+    // }
+    // else {
+    //     alertBox.innerHTML = "Enter Correct Post"
+    //     alertBox.classList.add("add")
+    //     setTimeout(function () {
+    //         alertBox.innerHTML = ""
+    //         alertBox.classList.remove("add")
 
-        }, 3000)
-    }
+    //     }, 3000)
+    // }
     postTitle.innerHTML =""
     postDes .innerHTML =""
+ getMyPost()
+
 }
 
 
 
     /////show all post in ui before post ///
-let showAllPost = () =>{
+let showAllPost = (e) =>{
+
     let getPost = JSON.parse(localStorage.getItem("posts"))
     let cardBox = document.getElementsByClassName("cardBox")
+    let html = ""
     
-    
-    console.log(getPost)
+    // console.log(getPost)
 
     ////PRINT ALL POST IN UI USING LOOP////
-    for(var i = getPost.length-1 ; i>=0;i--){
+    for(var i = e.length-1 ; i>=0;i--){
         
-        cardBox[0].innerHTML += ` <li class="postLi">
+        html += ` <li class="postLi">
 
         <div class="cardImage">
             <img src="img/blood.jpg" width="100%" height="100%" alt="">
@@ -332,20 +351,38 @@ let showAllPost = () =>{
         <div class="cardDes">
 
             <div class="postName">
-                <h1 id="postUserName">${getPost[i].postUserName}</h1>
-                <h4 id="postDate">${getPost[i].postDate}</h4>
+                <h1 id="postUserName">${e[i].postUserName}</h1>
+                <h4 id="postDate">${e[i].postDate}</h4>
 
             </div>
             <div class="postDes">
 
                 
-                <h2>${getPost[i].title}</h2>
-                <p>${getPost[i].desp}</p>
+                <h2>${e[i].title}</h2>
+                <p>${e[i].des}</p>
             </div>
 
         </div>
     </li>`
     }
-    
+    cardBox[0].innerHTML = html 
 
 }
+
+
+if(localStorage.getItem("posts")){
+    showAllPost()
+}else{
+    console.log("NO POSTS");
+}
+
+
+const getMyPost = ()=>{
+    axios.get(`${BASE_URL}/posts`)
+    .then(res=>{
+        console.log(res.data);
+        showAllPost(res.data)
+    })
+    .catch(err=>console.log(err))
+}
+ getMyPost()
