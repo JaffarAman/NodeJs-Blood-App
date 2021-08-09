@@ -110,50 +110,72 @@ let onSignUp = ()=> {
 
         ////USER INFO CONVERT INTO OBJECT///
         var userObj = {
-            userName: fullName.value,
-            userEmail: email.value,
-            userPassword: password.value,
-            userPhone: phone.value,
-            userAddress: address.value,
+            user_name: fullName.value,
+            user_email: email.value,
+            user_password: password.value,
+            user_phone: phone.value,
+            user_address: address.value,
         }
 
-        console.log("chal raha hai")
-
-        //////SET MULTIPLY DATA IN LOCAL STORAGE///
-        var user = JSON.parse(localStorage.getItem("users")) || [];
-
-        ///user ka data match kr rhy hai already local storage main store tou nahi hai///
-        var userIndex = user.findIndex(indexNumber => {
-            return indexNumber.userEmail === userObj.userEmail
-        });
-        // console.log(userIndex)
-        
-        //////condition check userIndex main agar -1 aya tou data nahi hai or koi number tou data add hai
-        if (userIndex === -1) {
-            ///ARRAY MAIN DATA PUSH
-            user.push(userObj)
-            ///LOCAL STORAGE MAIN ARRAY SAVE////
-            localStorage.setItem("users", JSON.stringify(user))
-            // console.log("add nahi tha bhai yeh")
+        // console.log("chal raha hai")
+        const BASE_URL = "http://localhost:5000"
+        axios.post(`${BASE_URL}/signup` , userObj)
+        .then(res=>{
+            console.log( "SIGN UP Success ",res.data.msg , res.data.error)
+            if(res.data.error == true){
+                    alert(res.data.msg)
+            }else{
+             alert(res.data.msg)
+             window.location.href = "index.html"
             
-            ///ALERT BOX///
-            alertBox.classList.add("add")
+            }
+        })
+        .catch(err=>{
+            console.log(err);
+            
+        })
 
-            ////SET TIMEOUT FUNCTION REMOVE ALERT MSG///
-            setTimeout(function () {
-                alertBox.classList.remove("add")
-                window.location.replace("index.html")
-            }, 3000)
+        //OLD WORK USING LOCAL STORAGE//////
+        
+{
 
+    //////SET MULTIPLY DATA IN LOCAL STORAGE///
+    // var user = JSON.parse(localStorage.getItem("users")) || [];
+    
+    //         ///user ka data match kr rhy hai already local storage main store tou nahi hai///
+    //         var userIndex = user.findIndex(indexNumber => {
+    //             return indexNumber.userEmail === userObj.userEmail
+    //         });
+    //         // console.log(userIndex)
+            
+    //         //////condition check userIndex main agar -1 aya tou data nahi hai or koi number tou data add hai
+    //         if (userIndex === -1) {
+    //             ///ARRAY MAIN DATA PUSH
+    //             user.push(userObj)
+    //             ///LOCAL STORAGE MAIN ARRAY SAVE////
+    //             localStorage.setItem("users", JSON.stringify(user))
+    //             // console.log("add nahi tha bhai yeh")
+                
+    //             ///ALERT BOX///
+    //             alertBox.classList.add("add")
+    
+    //             ////SET TIMEOUT FUNCTION REMOVE ALERT MSG///
+    //             setTimeout(function () {
+    //                 alertBox.classList.remove("add")
+    //                 window.location.replace("index.html")
+    //             }, 3000)
+    
+    //         }
+    
+    //         else {
+    
+    //             alertBox.firstChild.nextSibling.innerHTML = userObj.userEmail + " use in Another Account"
+    //             alertBox.classList.add("add")
+    
+    //         }
+
+           
         }
-
-        else {
-
-            alertBox.firstChild.nextSibling.innerHTML = userObj.userEmail + " use in Another Account"
-            alertBox.classList.add("add")
-
-        }
-
 
     }
 
@@ -167,34 +189,49 @@ let onLogin = ()=> {
     let password = document.getElementById("password")
 
     let userObj = {
-        userEmail: email.value,
-        userPassword: password.value
+        user_email: email.value,
+        user_password: password.value
     }
+    const BASE_URI2 = "http://localhost:5000"
+    axios.post(`${BASE_URI2}/signin` , userObj)
+    .then(res=>{
+        if(res.data.error == true){
+            alert(res.data.msg)
+        }else{
+            alert(res.data.msg)
+            window.location.href = "dashboard.html"
+        }
+    })
+    .catch(err=>console.log(err))
 
-    /////sara data ly kr ajaye gaw local storage sy
-    let user = JSON.parse(localStorage.getItem("users")) || []
+    ///////puranaa kam hai yehhh///
+    {
+    // /////sara data ly kr ajaye gaw local storage sy
+    // let user = JSON.parse(localStorage.getItem("users")) || []
     
 
-    ////user ka email or pass match hoga tou pura array ly kr ajye gaw
-    let checkUser = user.find(storeValue => {
-        return storeValue.userEmail === userObj.userEmail && storeValue.userPassword === userObj.userPassword
-    })
-    // console.log(checkUser)
+    // ////user ka email or pass match hoga tou pura array ly kr ajye gaw
+    // let checkUser = user.find(storeValue => {
+    //     return storeValue.userEmail === userObj.userEmail && storeValue.userPassword === userObj.userPassword
+    // })
+    // // console.log(checkUser)
 
 
-    ////condition match ho kr next page or jo CURRENT USER HAI oska pura array ek or propertie main 
-    // add hojaye gaw dashboard pr infomation show krne ky liye///
-    if (checkUser) {
-        ////current user ka pura array local main add
-        localStorage.setItem("currentUser", JSON.stringify(checkUser))
-        alertBox.classList.remove("add")
-        alertBox.innerHTML = ""
-        window.location.replace("dashboard.html")
+    // ////condition match ho kr next page or jo CURRENT USER HAI oska pura array ek or propertie main 
+    // // add hojaye gaw dashboard pr infomation show krne ky liye///
+    // if (checkUser) {
+    //     ////current user ka pura array local main add
+    //     localStorage.setItem("currentUser", JSON.stringify(checkUser))
+    //     alertBox.classList.remove("add")
+    //     alertBox.innerHTML = ""
+    //     window.location.replace("dashboard.html")
+    // }
+    // else {
+    //     alertBox.classList.add("add")
+    //     alertBox.innerHTML = "Invalid credentials"
+    // }
     }
-    else {
-        alertBox.classList.add("add")
-        alertBox.innerHTML = "Invalid credentials"
-    }
+
 
 
 }
@@ -385,4 +422,4 @@ const getMyPost = ()=>{
     })
     .catch(err=>console.log(err))
 }
- getMyPost()
+getMyPost()
